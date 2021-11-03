@@ -59,7 +59,7 @@ const CrudApp = () => {
   return (
     <>
       <div>
-        <h2>Crud App</h2>
+        <h2>Crud App (Estática)</h2>
         <article className="grid-1-2">
           <CrudForm
             createData={createData}
