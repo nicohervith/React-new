@@ -3,13 +3,16 @@ import CrudApp from "./Components/CrudApp";
 import CrudTable from './Components/CrudTable'
 import CrudApi from "./Components/CrudApi"
 import SongSearch from "./Components/SongSearch.js"
+import SelectAnidados from "./Components/SelectsAnidados";
 
 function App() {
   return (
     <>
       <h1>Ejercicios con React </h1>
       <hr />
-      <SongSearch/>
+      <SelectAnidados/>
+      <hr />
+      <SongSearch />
       <hr />
       <CrudApi />
       <hr />
