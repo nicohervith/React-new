@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { helpHttp } from '../helpers/helpHttp';
 
 
 
@@ -25,7 +26,36 @@ export const useForm = (initialForm,validateForm) =>{
        setErrors(validateForm(form))
 
      }
-     const handleSubmit = (e) => {};
+     const handleSubmit = (e) => {
+        e.preventDefault()
+        setErrors(validateForm(form));
+
+        //Si el objeto errores no tiene ninguna propiedad lo igual a 0
+        if(Object.keys(errors).length === 0) {
+          alert('Enviando formulario');
+          setLoading(true);
+          helpHttp()
+            .post("https://formsubmit.co/ajax/n_hervith@hotmail.com",{
+              body:form,
+              headers: {
+                "Content-Type" : "application/json",
+                Accept: "application/json"
+              }
+            })
+            .then((res) => {
+                setLoading(false);
+                //Actualizo la informacion de que la peticion se hizo y mandó el correo
+                setResponse(true);
+                
+                //Para limpiar el formulario y que el cartel de Enviado correctamente se esconda despues de 4
+                setForm(initialForm)
+                setTimeout(() => setResponse(false), 4000);
+            });
+        }else{
+
+        }
+
+     };
 
 
      return{
