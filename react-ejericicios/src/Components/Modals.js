@@ -3,6 +3,7 @@ import { useModal } from "../hooks/useModal";
 import Modal from "./Modal";
 import ContactForm from './ContactForm'
 import SongSearch from "./SongSearch";
+import ModalPortal from "./ModalPortal";
 
 const Modals = ( ) => {
   const [isOpenModal1, openModal1,closeModal1] = useModal(false)
@@ -12,6 +13,8 @@ const Modals = ( ) => {
   const [isOpenContact, openModalContact, closeModalContact] = useModal(false);
 
    const [isOpenSong, openModalSong, closeModalSong] = useModal(false);
+
+   const [isOpenModalPortal, openModalPortal, closeModalPortal] = useModal(false);
   return (
     <div>
       <h2> Modales </h2>
@@ -44,6 +47,17 @@ const Modals = ( ) => {
       <Modal isOpen={isOpenSong} closeModal={closeModalSong}>
         <SongSearch />
       </Modal>
+
+      <button onClick={openModalPortal}>Modal en Portal</button>
+      <ModalPortal isOpen={isOpenModalPortal} closeModal={closeModalPortal}>
+            <h3>Modal en Portal</h3>
+            <p>
+              Este es el contenido de un modal que carga en otro nodo del DOM
+              diferente a donde carga nuestra app de React, gracias a un React
+              Portal.
+            </p>
+            <img src="https://placeimg.com/400/400/tech" alt="Tech" />
+      </ModalPortal>
     </div>
   );
 }
