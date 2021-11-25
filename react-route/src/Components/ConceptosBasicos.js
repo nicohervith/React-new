@@ -6,67 +6,67 @@ import {
   Route,
 } from "react-router-dom";
 
-import Acerca from "../pages/Acerca";
-import Contacto from "../pages/Contacto";
-import Dashboard from "../pages/Dashboard";
-import Error404 from "../pages/Error404";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Productos from "../pages/Productos";
-import ReactTopics from "../pages/ReactTopics";
-import Usuario from "../pages/Usuario";
+import Acerca from "../Pages/Acerca";
+import Contacto from "../Pages/Contacto";
+import Error404 from "../Pages/Error404";
+import Home from "../Pages/Home";
+
+
+
+
 import MenuConceptos from "./MenuConceptos";
-import PrivateRoute from "./PrivateRoute";
+
 
 const ConceptosBasicos = () => {
   return (
     <div>
-      <h2>Hash Router</h2>
+      {/*<h2>Hash Router</h2>
       <HashRouter>
         <MenuConceptos />
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route  path="/acerca" element={<Acerca/>} />
           <Route path="/contacto" element={<Contacto/>} />
-          <Route path="/usuario/:username" component={Usuario} />
-          <Route  path="/productos" component={Productos} />
+          {/*<Route path="/usuario/:username" element={Usuario} />}
+          <Route  path="/productos" element={Productos} />
           <Route path="/about">
-            {/*<Redirect to="/acerca" />*/}
-          </Route>
-          <Route  path="/contact">
-            {/*<Redirect to="/contacto" />*/}
-          </Route>
-          <Route path="/react" component={ReactTopics} />
-          <Route  path="/login" component={Login} />
-           <Route exact path="/dashboard" component={Dashboard} /> 
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <Route path="*" component={Error404} />
+            <Redirect to="/acerca" />}
+            </Route>}
+            <Route  path="/contact">
+              <Redirect to="/contacto" />
+            </Route>
+          <Route path="/react" element={ReactTopics} />
+          <Route  path="/login" element={Login} />
+           <Route exact path="/dashboard" element={Dashboard} /> 
+          <PrivateRoute exact path="/dashboard" element={Dashboard} />
+          {/* El asterisco es una especie de COMODIN, obligatorio que la ruta de error sea la ultima en cargar }
+          <Route path="*" element={<Error404/>} />
         </Routes>
       </HashRouter>
-      <hr />
+      <hr />*/}
       <h2>Conceptos Básicos</h2>
-      <Router>
+      
         <MenuConceptos />
         <Routes>
-          <Route path="/" component={Home} />
-          <Route path="/acerca" component={Acerca} />
-          <Route  path="/contacto" component={Contacto} />
-          <Route  path="/usuario/:username" component={Usuario} />
-          <Route  path="/productos" component={Productos} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/acerca" element={<Acerca/>} />
+          <Route  path="/contacto" element={<Contacto/>} />
+          {/*<Route  path="/usuario/:username" element={Usuario} />}
+          <Route  path="/productos" element={Productos} />
           <Route  path="/about">
             {/* <Redirect to="/acerca" />
              */}
-          </Route>
+          {/*</Route>}
           <Route  path="/contact">
-            {/*<Redirect to="/contacto" />*/}
+            {/*<Redirect to="/contacto" />}
           </Route>
-          <Route path="/react" component={ReactTopics} />
-          <Route  path="/login" component={Login} />
+          <Route path="/react" element={ReactTopics} />
+          <Route  path="/login" element={Login} />
           {/* <Route exact path="/dashboard" component={Dashboard} /> */}
-          <PrivateRoute path="/dashboard" component={Dashboard} />
-          <Route path="*" component={Error404} />
+          {/*<PrivateRoute path="/dashboard" component={Dashboard} />*/}
+          <Route path="*" element={<Error404/>} />
         </Routes>
-      </Router>
+      
     </div>
   );
 };

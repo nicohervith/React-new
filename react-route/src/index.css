@@ -17,3 +17,12 @@ a {
 hr {
   margin: 2rem auto;
 }
+
+li {
+  margin-bottom: 2rem;
+}
+
+.active{
+  font-weight: bold;
+  color: #61dafb;
+}
