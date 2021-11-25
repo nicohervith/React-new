@@ -2,9 +2,10 @@ import {
   BrowserRouter as Router,
   HashRouter,
   Redirect,
+  Routes,
   Route,
-  Switch,
 } from "react-router-dom";
+
 import Acerca from "../pages/Acerca";
 import Contacto from "../pages/Contacto";
 import Dashboard from "../pages/Dashboard";
@@ -23,47 +24,48 @@ const ConceptosBasicos = () => {
       <h2>Hash Router</h2>
       <HashRouter>
         <MenuConceptos />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/acerca" component={Acerca} />
-          <Route exact path="/contacto" component={Contacto} />
-          <Route exact path="/usuario/:username" component={Usuario} />
-          <Route exact path="/productos" component={Productos} />
-          <Route exact path="/about">
-            <Redirect to="/acerca" />
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route  path="/acerca" element={<Acerca/>} />
+          <Route path="/contacto" element={<Contacto/>} />
+          <Route path="/usuario/:username" component={Usuario} />
+          <Route  path="/productos" component={Productos} />
+          <Route path="/about">
+            {/*<Redirect to="/acerca" />*/}
           </Route>
-          <Route exact path="/contact">
-            <Redirect to="/contacto" />
+          <Route  path="/contact">
+            {/*<Redirect to="/contacto" />*/}
           </Route>
           <Route path="/react" component={ReactTopics} />
-          <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/dashboard" component={Dashboard} /> */}
+          <Route  path="/login" component={Login} />
+           <Route exact path="/dashboard" component={Dashboard} /> 
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route path="*" component={Error404} />
-        </Switch>
+        </Routes>
       </HashRouter>
       <hr />
       <h2>Conceptos Básicos</h2>
       <Router>
         <MenuConceptos />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/acerca" component={Acerca} />
-          <Route exact path="/contacto" component={Contacto} />
-          <Route exact path="/usuario/:username" component={Usuario} />
-          <Route exact path="/productos" component={Productos} />
-          <Route exact path="/about">
-            <Redirect to="/acerca" />
+        <Routes>
+          <Route path="/" component={Home} />
+          <Route path="/acerca" component={Acerca} />
+          <Route  path="/contacto" component={Contacto} />
+          <Route  path="/usuario/:username" component={Usuario} />
+          <Route  path="/productos" component={Productos} />
+          <Route  path="/about">
+            {/* <Redirect to="/acerca" />
+             */}
           </Route>
-          <Route exact path="/contact">
-            <Redirect to="/contacto" />
+          <Route  path="/contact">
+            {/*<Redirect to="/contacto" />*/}
           </Route>
           <Route path="/react" component={ReactTopics} />
-          <Route exact path="/login" component={Login} />
+          <Route  path="/login" component={Login} />
           {/* <Route exact path="/dashboard" component={Dashboard} /> */}
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="*" component={Error404} />
-        </Switch>
+        </Routes>
       </Router>
     </div>
   );
