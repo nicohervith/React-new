@@ -20,7 +20,7 @@ const MenuConceptos = () => {
         </li>
         <li>
           <span> Componente NavLink </span>
-          <NavLink  to="/" activeClassName="active">
+          <NavLink to="/" activeClassName="active">
             Home
           </NavLink>
 
@@ -31,6 +31,11 @@ const MenuConceptos = () => {
           <NavLink to="/contacto" activeClassName="active">
             Contacto
           </NavLink>
+        </li>
+        <li>
+          <span>Pametros</span>
+          <Link to="/usuario/nicolas"> Nicolas </Link>
+          <Link to="/usuario/santino"> Santino </Link>
         </li>
       </ol>
     </nav>

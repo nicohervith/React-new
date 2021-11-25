@@ -1,7 +1,4 @@
 import {
-  BrowserRouter as Router,
-  HashRouter,
-  Redirect,
   Routes,
   Route,
 } from "react-router-dom";
@@ -10,6 +7,7 @@ import Acerca from "../Pages/Acerca";
 import Contacto from "../Pages/Contacto";
 import Error404 from "../Pages/Error404";
 import Home from "../Pages/Home";
+import Usuario from "../Pages/Usuario";
 
 
 
@@ -51,8 +49,8 @@ const ConceptosBasicos = () => {
           <Route path="/" element={<Home/>} />
           <Route path="/acerca" element={<Acerca/>} />
           <Route  path="/contacto" element={<Contacto/>} />
-          {/*<Route  path="/usuario/:username" element={Usuario} />}
-          <Route  path="/productos" element={Productos} />
+          <Route  path="/usuario/:username" element={<Usuario/>} />
+          {/*<Route  path="/productos" element={Productos} />
           <Route  path="/about">
             {/* <Redirect to="/acerca" />
              */}
