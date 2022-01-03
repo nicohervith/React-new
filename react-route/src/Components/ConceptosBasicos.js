@@ -8,6 +8,7 @@ import Contacto from "../Pages/Contacto";
 import Error404 from "../Pages/Error404";
 import Home from "../Pages/Home";
 import Productos from "../Pages/Productos";
+import ReactTopics from "../Pages/ReactTopics";
 import Usuario from "../Pages/Usuario";
 
 
@@ -53,8 +54,18 @@ const ConceptosBasicos = () => {
         <Route path="/usuario/:username" element={<Usuario />} />
         <Route path="/productos" element={<Productos />} />
 
-        <Route path="/about" element={ <> <Navigate to="/acerca" /> </>} />
-        <Route path="/contact" element={<Navigate to ="/contacto"/>} />
+        <Route
+          path="/about"
+          element={
+            <>
+              {" "}
+              <Navigate to="/acerca" />{" "}
+            </>
+          }
+        />
+        <Route path="/contact" element={<Navigate to="/contacto" />} />
+
+        <Route path="react/*" element={<ReactTopics />} />
         {/*<Route  path="/productos" element={Productos} />
           <Route  path="/about">
             {/* <Redirect to="/acerca" />
