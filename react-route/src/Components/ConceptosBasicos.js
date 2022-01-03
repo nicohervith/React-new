@@ -1,12 +1,13 @@
 import {
   Routes,
-  Route,
+  Route,Navigate
 } from "react-router-dom";
 
 import Acerca from "../Pages/Acerca";
 import Contacto from "../Pages/Contacto";
 import Error404 from "../Pages/Error404";
 import Home from "../Pages/Home";
+import Productos from "../Pages/Productos";
 import Usuario from "../Pages/Usuario";
 
 
@@ -43,28 +44,31 @@ const ConceptosBasicos = () => {
       </HashRouter>
       <hr />*/}
       <h2>Conceptos Básicos</h2>
-      
-        <MenuConceptos />
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/acerca" element={<Acerca/>} />
-          <Route  path="/contacto" element={<Contacto/>} />
-          <Route  path="/usuario/:username" element={<Usuario/>} />
-          {/*<Route  path="/productos" element={Productos} />
+
+      <MenuConceptos />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/acerca" element={<Acerca />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/usuario/:username" element={<Usuario />} />
+        <Route path="/productos" element={<Productos />} />
+
+        <Route path="/about" element={ <> <Navigate to="/acerca" /> </>} />
+        <Route path="/contact" element={<Navigate to ="/contacto"/>} />
+        {/*<Route  path="/productos" element={Productos} />
           <Route  path="/about">
             {/* <Redirect to="/acerca" />
              */}
-          {/*</Route>}
+        {/*</Route>}
           <Route  path="/contact">
             {/*<Redirect to="/contacto" />}
           </Route>
           <Route path="/react" element={ReactTopics} />
           <Route  path="/login" element={Login} />
           {/* <Route exact path="/dashboard" component={Dashboard} /> */}
-          {/*<PrivateRoute path="/dashboard" component={Dashboard} />*/}
-          <Route path="*" element={<Error404/>} />
-        </Routes>
-      
+        {/*<PrivateRoute path="/dashboard" component={Dashboard} />*/}
+        <Route path="*" element={<Error404 />} />
+      </Routes>
     </div>
   );
 };
