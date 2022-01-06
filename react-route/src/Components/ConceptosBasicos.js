@@ -7,14 +7,17 @@ import Acerca from "../Pages/Acerca";
 import Contacto from "../Pages/Contacto";
 import Error404 from "../Pages/Error404";
 import Home from "../Pages/Home";
+import Login from "../Pages/Login";
 import Productos from "../Pages/Productos";
 import ReactTopics from "../Pages/ReactTopics";
 import Usuario from "../Pages/Usuario";
+import Dashboard from "../Pages/Dashboard";
 
 
 
 
 import MenuConceptos from "./MenuConceptos";
+import PrivateRoute from "./PrivateRoute";
 
 
 const ConceptosBasicos = () => {
@@ -66,6 +69,14 @@ const ConceptosBasicos = () => {
         <Route path="/contact" element={<Navigate to="/contacto" />} />
 
         <Route path="react/*" element={<ReactTopics />} />
+
+        <Route path="/login" element={<Login />} />
+
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+
+       
+
+
         {/*<Route  path="/productos" element={Productos} />
           <Route  path="/about">
             {/* <Redirect to="/acerca" />

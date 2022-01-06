@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import CrudApi from './Components/CrudApi'
+import SongSearch from './Components/SongSearch'
 
 import "./App.css";
 import ConceptosBasicos from "./Components/ConceptosBasicos";
@@ -16,6 +18,10 @@ function App() {
         {" "}
         Documentacion
       </a>
+      <hr/>
+      <SongSearch/>
+      <hr/>
+      <CrudApi/>
       <hr />
       <ConceptosBasicos />
     </div>
