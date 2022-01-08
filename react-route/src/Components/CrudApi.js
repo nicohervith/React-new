@@ -4,13 +4,14 @@ import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
 import Loader from "./Loader";
 import Message from "./Message";
+import { HashRouter , NavLink,Switch,Route} from "react-router-dom";
+import Error404 from "../Pages/Error404";
 
 const CrudApi = () => {
   const [db, setDb] = useState(null);
   const [dataToEdit, setDataToEdit] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
 
   let api = helpHttp();
   let url = "http://localhost:5000/santos";
@@ -78,17 +79,17 @@ const CrudApi = () => {
     );
     if (isDelete) {
       let endpoint = `${url}/${id}`;
-       let options = {
-         headers: { "content-type": "application/json" },
-       };
+      let options = {
+        headers: { "content-type": "application/json" },
+      };
 
-      api.del(endpoint,options).then((res)=>{
+      api.del(endpoint, options).then((res) => {
         if (!res.err) {
           let newData = db.filter((el) => el.id !== id);
           setDb(newData);
-      } else {
-        setError(res);
-      }
+        } else {
+          setError(res);
+        }
       });
     } else {
       return;
@@ -96,33 +97,58 @@ const CrudApi = () => {
   };
 
   return (
-    <>
-      <div>
-        <h2>Crud Api</h2>
-        <article className="grid-1-2">
-          <CrudForm
-            createData={createData}
-            updateData={updateData}
-            dataToEdit={dataToEdit}
-            setdataToEdit={setDataToEdit}
-          />
-          {loading && <Loader />}
-          {error && (
-            <Message
-              msg={`Error ${error.status}: ${error.statusText}`}
-              bgColor="#dc3545"
-            />
-          )}
-          {db && (
-            <CrudTable
-              data={db}
+    <div>
+      <h2>Actualmente estos componentes no funcionan</h2>
+      {/*<HashRouter basename="santos">
+        <header>
+          <h2>CRUD API con Rutas</h2>
+          <nav>
+            <NavLink to="/" activeClassName="active">
+              Santos
+            </NavLink>
+            <NavLink to="/agregar" activeClassName="active">
+              Agregar
+            </NavLink>
+          </nav>
+        </header>
+        <Switch>
+          <Route exact path="/">
+            {loading && <Loader />}
+            {error && (
+              <Message
+                msg={`Error ${error.status}: ${error.statusText}`}
+                bgColor="#dc3545"
+              />
+            )}
+            {db && (
+              <CrudTable
+                data={db}
+                setDataToEdit={setDataToEdit}
+                deleteData={deleteData}
+              />
+            )}
+          </Route>
+          <Route exact path="/agregar">
+            <CrudForm
+              createData={createData}
+              updateData={updateData}
+              dataToEdit={dataToEdit}
               setDataToEdit={setDataToEdit}
-              deleteData={deleteData}
             />
-          )}
-        </article>
-      </div>
-    </>
+          </Route>
+          <Route exact path="/editar/:id">
+            <CrudForm
+              createData={createData}
+              updateData={updateData}
+              dataToEdit={dataToEdit}
+              setDataToEdit={setDataToEdit}
+            />
+          </Route>
+          <Route path="*" children={<Error404 />} />
+        </Switch>
+      </HashRouter>
+      */}
+    </div>
   );
 };
 
