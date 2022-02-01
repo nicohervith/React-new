@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Main = ({theme}) => {
+const Main = ({theme,texts}) => {
   return (
     <main className={theme}>
-        <p>Bienvenido invitado</p>
-        <p>Hola usuario</p>
-        <p>Contenido principal</p>
+      <p>{texts.mainWelcome}</p>
+      <p>{texts.mainHello}</p>
+      <p>{texts.mainContent}</p>
     </main>
   );
 }

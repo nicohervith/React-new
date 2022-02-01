@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Header = ({theme,handleTheme}) => {
+const Header = ({theme,handleTheme, texts, handleLanguage}) => {
   return (
     <header className={theme}>
-        <h2>Mi aplicación sin context API</h2>
-        <h3>Cabecera</h3>
-      <select name="language">
+      <h2>{texts.headerTitle}</h2>
+      <h3>{texts.headerSubtitle}</h3>
+      <select name="language" onChange={handleLanguage}>
         <option value="es">ES</option>
         <option value="en">EN</option>
       </select>
@@ -18,7 +18,7 @@ const Header = ({theme,handleTheme}) => {
         value="light"
       />
 
-      <label htmlFor="light">Claro</label>
+      <label htmlFor="light">{texts.headerLight}</label>
 
       <input
         type="radio"
@@ -28,9 +28,9 @@ const Header = ({theme,handleTheme}) => {
         value="dark"
       />
 
-      <label htmlFor="dark">Oscuro</label>
+      <label htmlFor="dark">{texts.headerDark}</label>
 
-      <button>Iniciar Sesión</button>
+      <button>{texts.buttonLogin}{texts.buttonLogout}</button>
     </header>
   );
 }
