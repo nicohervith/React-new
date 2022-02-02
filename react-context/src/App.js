@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import MyPage from './Components/MyPage';
+import MyPageContext from './Components/MyPageContext';
 
 function App() {
   return (
@@ -13,8 +14,11 @@ function App() {
               >
                 Documentación
               </a>
+            <hr/>
+            <MyPageContext/>
           <hr />
           <MyPage/>
+          
     </div>
   );
 }
