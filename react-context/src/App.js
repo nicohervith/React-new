@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import MyPage from './Components/MyPage';
 import MyPageContext from './Components/MyPageContext';
+import CrudApi from './Components/CrudApi';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
               >
                 Documentación
               </a>
+              <hr/>
+              <CrudApi/>
             <hr/>
             <MyPageContext/>
           <hr />
