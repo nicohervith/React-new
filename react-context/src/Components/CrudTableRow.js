@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import CrudContext from "../Context/CrudContext";
 
-
-//Renderiza el contenido y reacciona a los eventos de edicion y eliminacion
-const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
+const CrudTableRow = ({ el }) => {
+  const { setDataToEdit, deleteData } = useContext(CrudContext);
   let { name, constellation, id } = el;
 
   return (
