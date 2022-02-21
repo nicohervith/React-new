@@ -1,14 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import Contador from './Components/Contador';
 import ContadorMejorado from './Components/ContadorMejorado';
+import ShoppingCart from './Components/ShoppingCart';
 
 function App() {
   return (
     <div>
       <h1> React Reducers </h1>
       <hr />
-      <ContadorMejorado/>
+      <ShoppingCart/>
+      <hr />
+      <ContadorMejorado />
       <hr />
       <Contador />
     </div>
