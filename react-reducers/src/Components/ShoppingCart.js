@@ -1,5 +1,7 @@
 import React, { useReducer } from 'react'
+import { TYPES } from '../Actions/shoppingActions';
 import {shoppingInitialState, shoppingReducer} from '../Reducers/shoppingReducer'
+import CartItem from './CartItem';
 import ProductItem from './ProductItem';
 
 const ShoppingCart = () => {
@@ -9,7 +11,7 @@ const ShoppingCart = () => {
   const { products,cart }= state;
 
   const addToCart = (id) =>{
-
+      dispatch({type:TYPES.ADD_TO_CART, payload:id})
   }
 
   const delFromCart = () =>{
@@ -29,7 +31,12 @@ const ShoppingCart = () => {
         ))}
       </article>
       <h3> Carrito</h3>
-      <article className="box"></article>
+      <article className="box">
+        <button onClick={clearCart}>Limpiar Carrito</button>
+        {
+            cart.map((item, index)=> <CartItem key={index} data={item} delFromCart={delFromCart}/>)
+        }
+      </article>
     </div>
   );
 }
